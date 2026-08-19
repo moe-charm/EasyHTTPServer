@@ -1,0 +1,354 @@
+<Window x:Class="EasyHttpServer.Desktop.Wpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="EasyHTTPServer 2"
+        Icon="Assets/AppIcon.ico"
+        Width="1060"
+        Height="700"
+        MinWidth="820"
+        MinHeight="560"
+        Background="{DynamicResource CanvasBrush}"
+        WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+    </Window.Resources>
+    <Window.InputBindings>
+        <KeyBinding Key="M" Modifiers="Alt" Command="{Binding ToggleThemeCommand}" />
+        <KeyBinding Key="E" Modifiers="Alt" Command="{Binding SettingsCommand}" />
+        <KeyBinding Key="H" Modifiers="Alt" Command="{Binding AboutCommand}" />
+        <KeyBinding Key="S" Modifiers="Alt" Command="{Binding StartCommand}" />
+        <KeyBinding Key="T" Modifiers="Alt" Command="{Binding StopCommand}" />
+        <KeyBinding Key="C" Modifiers="Alt" Command="{Binding CopyUrlCommand}" />
+        <KeyBinding Key="A" Modifiers="Alt" Command="{Binding AddShareCommand}" />
+        <KeyBinding Key="D" Modifiers="Alt" Command="{Binding RemoveShareCommand}" />
+        <KeyBinding Key="G" Modifiers="Alt" Command="{Binding CheckGlobalIpv4Command}" />
+        <KeyBinding Key="I" Modifiers="Alt" Command="{Binding CopyGlobalIpv4Command}" />
+        <KeyBinding Key="W" Modifiers="Alt" Command="{Binding SelectWebsiteFolderCommand}" />
+    </Window.InputBindings>
+    <Grid Margin="24">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="18" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="18" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="18" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <StackPanel>
+                <TextBlock FontSize="28" FontWeight="SemiBold" Text="EasyHTTPServer 2" />
+                <TextBlock Margin="0,5,0,0" Foreground="{DynamicResource SecondaryTextBrush}"
+                           Text="ファイル共有、または静的Webサイトを安全な読み取り専用サーバーで公開します。" />
+                <StackPanel Margin="0,10,0,0" Orientation="Horizontal">
+                    <TextBlock Margin="0,0,12,0" VerticalAlignment="Center" FontWeight="SemiBold" Text="公開目的" />
+                    <RadioButton Margin="0,0,16,0" IsEnabled="{Binding CanEditConfiguration}"
+                                 IsChecked="{Binding IsFileSharingMode}" Content="ファイル共有" />
+                    <RadioButton IsEnabled="{Binding CanEditConfiguration}"
+                                 IsChecked="{Binding IsWebsiteMode}" Content="Webサイト" />
+                </StackPanel>
+            </StackPanel>
+            <Button Grid.Column="1" TabIndex="0" Command="{Binding ToggleThemeCommand}"
+                    AutomationProperties.Name="テーマ切替" AutomationProperties.AccessKey="Alt+M"
+                    Content="{Binding ThemeButtonText}" />
+            <Button Grid.Column="2" TabIndex="1" Command="{Binding SettingsCommand}"
+                    AutomationProperties.AccessKey="Alt+E" Content="設定" />
+            <Button Grid.Column="3" TabIndex="2" Command="{Binding AboutCommand}"
+                    AutomationProperties.AccessKey="Alt+H" Content="History / About" />
+            <Border Grid.Column="4" Padding="14,8" CornerRadius="16" Background="{DynamicResource SurfaceBrush}"
+                    AutomationProperties.Name="サーバー状態">
+                <StackPanel Orientation="Horizontal">
+                    <Ellipse Width="10" Height="10" Margin="0,0,8,0" Fill="{Binding ServerStateBrush}" />
+                    <TextBlock VerticalAlignment="Center" FontWeight="SemiBold" Text="{Binding ServerStateText}" />
+                </StackPanel>
+            </Border>
+        </Grid>
+
+        <Border Grid.Row="2" Padding="18" CornerRadius="12" Background="{DynamicResource SurfaceBrush}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="90" />
+                    <ColumnDefinition Width="16" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="24" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <TextBlock VerticalAlignment="Center" FontWeight="SemiBold" Text="ポート">
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Visibility" Value="Visible" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsWebsiteMode}" Value="True">
+                                    <Setter Property="Visibility" Value="Collapsed" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+                <TextBox Grid.Column="1" Margin="10,0,0,0" Padding="8,6" VerticalContentAlignment="Center" TabIndex="3"
+                          AutomationProperties.Name="待ち受けポート"
+                          IsEnabled="{Binding CanEditFileSharingConfiguration}"
+                          Text="{Binding Port, UpdateSourceTrigger=PropertyChanged}">
+                    <TextBox.Style>
+                        <Style TargetType="TextBox">
+                            <Setter Property="Visibility" Value="Visible" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsWebsiteMode}" Value="True">
+                                    <Setter Property="Visibility" Value="Collapsed" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
+                <TextBlock Grid.ColumnSpan="2" VerticalAlignment="Center" FontWeight="SemiBold"
+                           AutomationProperties.Name="Webサイトポート自動割り当て"
+                           Text="Webサイト用ポート: 開始ごとに自動割り当て">
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsWebsiteMode}" Value="True">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+                <Button Grid.Column="3" TabIndex="4" Command="{Binding StartCommand}"
+                        ToolTip="{Binding StartRequirementText}"
+                        AutomationProperties.AccessKey="Alt+S" Content="開始" />
+                <Button Grid.Column="4" TabIndex="5" Command="{Binding StopCommand}"
+                        AutomationProperties.AccessKey="Alt+T" Content="停止" />
+                <TextBox Grid.Column="6" Padding="8,6" IsReadOnly="True" VerticalContentAlignment="Center" TabIndex="6"
+                         AutomationProperties.Name="公開URL"
+                         Text="{Binding PublicUrl, Mode=OneWay}" />
+                <Button Grid.Column="7" Margin="8,0,0,0" TabIndex="7" Command="{Binding CopyUrlCommand}"
+                        AutomationProperties.AccessKey="Alt+C" Content="URLをコピー" />
+                <StackPanel Grid.Row="1" Grid.ColumnSpan="8" Margin="0,8,0,0">
+                    <TextBlock Foreground="{Binding StatusBrush}" TextWrapping="Wrap"
+                               AutomationProperties.Name="操作通知" Text="{Binding StatusText}" />
+                    <TextBlock Margin="0,3,0,0" Foreground="#7A4E00" TextWrapping="Wrap"
+                               AutomationProperties.Name="開始条件" Text="{Binding StartRequirementText}"
+                               Visibility="{Binding HasStartRequirement, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <Border Grid.Row="4" Padding="14,10" CornerRadius="12" Background="{DynamicResource SurfaceBrush}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="10" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="10" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="10" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="220" />
+                    <ColumnDefinition Width="18" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <CheckBox Grid.ColumnSpan="2" VerticalAlignment="Center" TabIndex="8" IsEnabled="{Binding CanEditConfiguration}"
+                          IsChecked="{Binding IsRemoteEnabled}" Content="ほかの端末にも公開"
+                          AutomationProperties.Name="ほかの端末にも公開" />
+                <StackPanel Grid.Row="2" Grid.ColumnSpan="5">
+                    <TextBlock VerticalAlignment="Center" Foreground="{DynamicResource MutedTextBrush}"
+                               Text="{Binding RemoteConnectionSummary}" />
+                    <StackPanel Margin="0,8,0,0" Orientation="Horizontal"
+                                Visibility="{Binding IsRemoteEnabled, Converter={StaticResource BooleanToVisibilityConverter}}">
+                        <RadioButton Margin="0,0,24,0" TabIndex="9" GroupName="MainNetworkScope"
+                                     IsEnabled="{Binding CanSelectLan}" IsChecked="{Binding IsLanEnabled}"
+                                     Content="同じWi-Fi・家庭内LAN" />
+                        <RadioButton TabIndex="10" GroupName="MainNetworkScope"
+                                     IsEnabled="{Binding CanSelectVpn}" IsChecked="{Binding IsVpnEnabled}"
+                                     Content="VPN" />
+                    </StackPanel>
+                </StackPanel>
+                <Button Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="2" HorizontalAlignment="Right" TabIndex="11"
+                        Padding="12,4" Command="{Binding SettingsCommand}" Content="接続方法の詳細…" />
+                <StackPanel Grid.Row="4" Grid.Column="1" Margin="10,0,0,0" Orientation="Horizontal"
+                            Visibility="{Binding IsRemoteConnectionSelected, Converter={StaticResource BooleanToVisibilityConverter}}">
+                    <TextBox Width="110" IsReadOnly="True" TabIndex="12"
+                             AutomationProperties.Name="接続ペアリングコード" Text="{Binding LanAccessCode, Mode=OneWay}" />
+                    <Button Margin="8,0,0,0" TabIndex="13" Command="{Binding RenewPairingCodeCommand}" Content="新しいコード" />
+                </StackPanel>
+                <TextBlock Grid.Row="4" VerticalAlignment="Center" Text="ペアリング"
+                           Visibility="{Binding IsRemoteConnectionSelected, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                <TextBlock Grid.Row="4" Grid.Column="3" VerticalAlignment="Center" Text="証明書 SHA-256"
+                           Visibility="{Binding IsRemoteConnectionSelected, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                <TextBox Grid.Row="4" Grid.Column="4" Margin="10,0,0,0" IsReadOnly="True"
+                         AutomationProperties.Name="証明書SHA-256指紋" Text="{Binding CertificateFingerprint, Mode=OneWay}"
+                         Visibility="{Binding IsRemoteConnectionSelected, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                <Border Grid.Row="0" Grid.RowSpan="5" Grid.Column="5" Width="104" Height="104" Margin="14,0,0,0"
+                        Padding="4" Background="White" AutomationProperties.Name="接続URLのQRコード"
+                        Visibility="{Binding IsRemoteConnectionSelected, Converter={StaticResource BooleanToVisibilityConverter}}">
+                    <Image Stretch="Uniform" Source="{Binding QrCodeImage}" />
+                </Border>
+            </Grid>
+        </Border>
+
+        <Grid Grid.Row="6">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="18" />
+                <ColumnDefinition Width="3*" />
+            </Grid.ColumnDefinitions>
+
+            <Border Padding="18" CornerRadius="12" Background="{DynamicResource SurfaceBrush}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="12" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="14" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock FontSize="18" FontWeight="SemiBold">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Text" Value="公開フォルダー" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding IsWebsiteMode}" Value="True">
+                                        <Setter Property="Text" Value="Webサイトフォルダー" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                    <ListBox Grid.Row="2" BorderThickness="0" TabIndex="11" ItemsSource="{Binding Shares}"
+                             AutomationProperties.Name="共有フォルダー一覧"
+                             SelectedItem="{Binding SelectedShare}">
+                        <ListBox.Style>
+                            <Style TargetType="ListBox">
+                                <Setter Property="Visibility" Value="Visible" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding IsWebsiteMode}" Value="True">
+                                        <Setter Property="Visibility" Value="Collapsed" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ListBox.Style>
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Margin="4,7">
+                                    <TextBlock FontWeight="SemiBold" Text="{Binding Name}" />
+                                    <TextBlock Margin="0,3,0,0" Foreground="{DynamicResource SecondaryTextBrush}" FontSize="12"
+                                               Text="{Binding RootPath}" TextTrimming="CharacterEllipsis" />
+                                    <TextBlock Margin="0,2,0,0" Foreground="{DynamicResource AccentBrush}" FontSize="12"
+                                               Text="{Binding Slug, StringFormat=/s/{0}/}" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <Grid Grid.Row="2">
+                        <Grid.Style>
+                            <Style TargetType="Grid">
+                                <Setter Property="Visibility" Value="Collapsed" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding IsWebsiteMode}" Value="True">
+                                        <Setter Property="Visibility" Value="Visible" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Grid.Style>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="12" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock TextWrapping="Wrap" Foreground="{DynamicResource SecondaryTextBrush}"
+                                   Text="index.html / index.htm とCSS・JavaScript・画像を表示します。HTMLとJavaScriptは閲覧端末で実行されるため、信頼できる公開専用フォルダーを選んでください。" />
+                        <TextBox Grid.Row="2" Padding="8,6" IsReadOnly="True" TextWrapping="Wrap"
+                                 AutomationProperties.Name="Webサイトフォルダー"
+                                 Text="{Binding WebsiteRootPath, Mode=OneWay}" />
+                    </Grid>
+                    <StackPanel Grid.Row="4" Orientation="Horizontal">
+                        <StackPanel.Style>
+                            <Style TargetType="StackPanel">
+                                <Setter Property="Visibility" Value="Visible" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding IsWebsiteMode}" Value="True">
+                                        <Setter Property="Visibility" Value="Collapsed" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </StackPanel.Style>
+                        <Button TabIndex="12" Command="{Binding AddShareCommand}"
+                                AutomationProperties.AccessKey="Alt+A" Content="追加…" />
+                        <Button TabIndex="13" Command="{Binding RemoveShareCommand}"
+                                 AutomationProperties.AccessKey="Alt+D" Content="削除" />
+                    </StackPanel>
+                    <Button Grid.Row="4" HorizontalAlignment="Left" TabIndex="12"
+                            Command="{Binding SelectWebsiteFolderCommand}"
+                            AutomationProperties.AccessKey="Alt+W" Content="サイトフォルダーを選択…">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Visibility" Value="Collapsed" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding IsWebsiteMode}" Value="True">
+                                        <Setter Property="Visibility" Value="Visible" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                </Grid>
+            </Border>
+
+            <Border Grid.Column="2" Padding="18" CornerRadius="12" Background="{DynamicResource SurfaceBrush}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="12" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock FontSize="18" FontWeight="SemiBold" Text="最近の転送" />
+                        <TextBlock Grid.Column="1" VerticalAlignment="Center" Foreground="{DynamicResource SecondaryTextBrush}" Text="最大200件" />
+                    </Grid>
+                    <DataGrid Grid.Row="2" TabIndex="14" AutoGenerateColumns="False" IsReadOnly="True"
+                              AutomationProperties.Name="最近の転送一覧"
+                              CanUserAddRows="False" HeadersVisibility="Column" BorderThickness="0"
+                              ItemsSource="{Binding Transfers}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="時刻" Width="80"
+                                                Binding="{Binding Timestamp, StringFormat=HH:mm:ss}" />
+                            <DataGridTextColumn Header="メソッド" Width="78" Binding="{Binding Method}" />
+                            <DataGridTextColumn Header="状態" Width="65" Binding="{Binding StatusCode}" />
+                            <DataGridTextColumn Header="パス" Width="*" Binding="{Binding Path}" />
+                            <DataGridTextColumn Header="時間" Width="75"
+                                                Binding="{Binding Duration.TotalMilliseconds, StringFormat={}{0:F0} ms}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>

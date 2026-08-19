@@ -1,0 +1,222 @@
+<VisualStudioProject>
+    <CSHARP
+        ProjectType = "Local"
+        ProductVersion = "7.0.9466"
+        SchemaVersion = "1.0"
+        ProjectGuid = "{10DA5825-5205-432C-A477-94DDD577F862}"
+    >
+        <Build>
+            <Settings
+                ApplicationIcon = "Prog.ico"
+                AssemblyKeyContainerName = ""
+                AssemblyName = "EasyHTTPServer"
+                AssemblyOriginatorKeyFile = ""
+                DefaultClientScript = "JScript"
+                DefaultHTMLPageLayout = "Grid"
+                DefaultTargetSchema = "IE50"
+                DelaySign = "false"
+                OutputType = "WinExe"
+                RootNamespace = "EasyHTTPServer"
+                StartupObject = ""
+            >
+                <Config
+                    Name = "Debug"
+                    AllowUnsafeBlocks = "false"
+                    BaseAddress = "285212672"
+                    CheckForOverflowUnderflow = "false"
+                    ConfigurationOverrideFile = ""
+                    DefineConstants = "DEBUG;TRACE"
+                    DocumentationFile = ""
+                    DebugSymbols = "true"
+                    FileAlignment = "4096"
+                    IncrementalBuild = "true"
+                    Optimize = "false"
+                    OutputPath = "bin\Debug\"
+                    RegisterForComInterop = "false"
+                    RemoveIntegerChecks = "false"
+                    TreatWarningsAsErrors = "false"
+                    WarningLevel = "4"
+                />
+                <Config
+                    Name = "Release"
+                    AllowUnsafeBlocks = "false"
+                    BaseAddress = "285212672"
+                    CheckForOverflowUnderflow = "false"
+                    ConfigurationOverrideFile = ""
+                    DefineConstants = "TRACE"
+                    DocumentationFile = ""
+                    DebugSymbols = "false"
+                    FileAlignment = "4096"
+                    IncrementalBuild = "false"
+                    Optimize = "true"
+                    OutputPath = "bin\Release\"
+                    RegisterForComInterop = "false"
+                    RemoveIntegerChecks = "false"
+                    TreatWarningsAsErrors = "false"
+                    WarningLevel = "4"
+                />
+            </Settings>
+            <References>
+                <Reference
+                    Name = "System.Data"
+                    AssemblyName = "System.Data"
+                    HintPath = "..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.0.3705\System.Data.dll"
+                />
+                <Reference
+                    Name = "System.Drawing"
+                    AssemblyName = "System.Drawing"
+                    HintPath = "..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.0.3705\System.Drawing.dll"
+                />
+                <Reference
+                    Name = "System.Windows.Forms"
+                    AssemblyName = "System.Windows.Forms"
+                    HintPath = "..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.0.3705\System.Windows.Forms.dll"
+                />
+                <Reference
+                    Name = "System.XML"
+                    AssemblyName = "System.Xml"
+                    HintPath = "..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.0.3705\System.XML.dll"
+                />
+                <Reference
+                    Name = "System"
+                    AssemblyName = "System"
+                    HintPath = "..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.0.3705\System.dll"
+                />
+                <Reference
+                    Name = "System.Design"
+                    AssemblyName = "System.Design"
+                    HintPath = "..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.0.3705\System.Design.dll"
+                />
+                <Reference
+                    Name = "System.Web"
+                    AssemblyName = "System.Web"
+                    HintPath = "..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.0.3705\System.Web.dll"
+                />
+                <Reference
+                    Name = "System.Runtime.Serialization.Formatters.Soap"
+                    AssemblyName = "System.Runtime.Serialization.Formatters.Soap"
+                    HintPath = "..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.0.3705\System.Runtime.Serialization.Formatters.Soap.dll"
+                />
+                <Reference
+                    Name = "TTFA.CommonClass"
+                    AssemblyName = "TTFA.CommonClass"
+                    HintPath = "DLL\TTFA.CommonClass.dll"
+                />
+                <Reference
+                    Name = "TTFA.CommonControl"
+                    AssemblyName = "TTFA.CommonControl"
+                    HintPath = "DLL\TTFA.CommonControl.dll"
+                />
+                <Reference
+                    Name = "TTFA.Compress"
+                    AssemblyName = "TTFA.Compress"
+                    HintPath = "DLL\TTFA.Compress.dll"
+                />
+                <Reference
+                    Name = "TTFA.FilePathWithArchiveFunction"
+                    AssemblyName = "TTFA.FilePathWithArchiveFunction"
+                    HintPath = "DLL\TTFA.FilePathWithArchiveFunction.dll"
+                />
+                <Reference
+                    Name = "TTFA.NET"
+                    AssemblyName = "TTFA.NET"
+                    HintPath = "DLL\TTFA.NET.dll"
+                />
+                <Reference
+                    Name = "TTFA.SusieControl"
+                    AssemblyName = "TTFA.SusieControl"
+                    HintPath = "DLL\TTFA.SusieControl.dll"
+                />
+                <Reference
+                    Name = "TTFA.Win32"
+                    AssemblyName = "TTFA.Win32"
+                    HintPath = "DLL\TTFA.Win32.dll"
+                />
+            </References>
+        </Build>
+        <Files>
+            <Include>
+                <File
+                    RelPath = "App.ico"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "AssemblyInfo.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "CGIs.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "ContentType.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "FileSendStatus.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "FormCommonSetting.cs"
+                    SubType = "Form"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "FormCommonSetting.resx"
+                    DependentUpon = "FormCommonSetting.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "FormHTTPServer.cs"
+                    SubType = "Form"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "FormHTTPServer.resx"
+                    DependentUpon = "FormHTTPServer.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "FormVersion.cs"
+                    SubType = "Form"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "FormVersion.resx"
+                    DependentUpon = "FormVersion.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "HTTPCommand.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "HTTPServer.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "HTTPServerObject.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Persons.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "StartUp.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+            </Include>
+        </Files>
+    </CSHARP>
+</VisualStudioProject>
+

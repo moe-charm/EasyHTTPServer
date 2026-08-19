@@ -1,0 +1,9 @@
+* text=auto
+
+# Preserve the historical distribution and CP932-era source byte-for-byte.
+/legacy/source-1.2/** -text
+
+*.dll binary
+*.exe binary
+*.gif binary
+*.ico binary

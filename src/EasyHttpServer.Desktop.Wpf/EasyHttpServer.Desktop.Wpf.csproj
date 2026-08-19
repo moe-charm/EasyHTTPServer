@@ -1,0 +1,46 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\EasyHttpServer.Core\EasyHttpServer.Core.csproj" />
+    <ProjectReference Include="..\EasyHttpServer.Server\EasyHttpServer.Server.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="QRCoder" Version="1.8.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\..\Guide\**\*">
+      <Link>Guide\%(RecursiveDir)%(Filename)%(Extension)</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <AssemblyName>EasyHTTPServer</AssemblyName>
+    <Product>EasyHTTPServer 2</Product>
+    <Title>EasyHTTPServer 2</Title>
+    <Authors>charmpic</Authors>
+    <Company>charmpic</Company>
+    <Copyright>Copyright © 2005-2026 charmpic</Copyright>
+    <Version>2.0.0-alpha.1</Version>
+    <AssemblyVersion>2.0.0.0</AssemblyVersion>
+    <FileVersion>2.0.0.0</FileVersion>
+    <InformationalVersion>2.0.0-alpha.1</InformationalVersion>
+    <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <ApplicationIcon>Assets\AppIcon.ico</ApplicationIcon>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\AppIcon.ico" />
+    <Resource Include="Assets\AppIcon.png" />
+  </ItemGroup>
+
+</Project>

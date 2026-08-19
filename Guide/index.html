@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EasyHTTPServer 2 はじめかた</title>
+  <link rel="stylesheet" href="guide.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero__inner">
+      <p class="eyebrow">EasyHTTPServer 2</p>
+      <h1>ファイルを、すぐそばの端末へ。</h1>
+      <p class="lead">フォルダーを選び、公開先を選び、開始する。まずはこのPCだけで試せます。</p>
+      <div class="hero__actions">
+        <a class="button" href="#quick-start">3分ではじめる</a>
+        <a class="button button--quiet" href="#safety">安全のポイント</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="notice">
+      <strong>いちばん簡単な試し方</strong>
+      <span>初期登録された「EasyHTTPServer の説明書」のまま、公開先を「このPCだけ」にして開始します。</span>
+    </section>
+
+    <section id="quick-start">
+      <p class="section-label">QUICK START</p>
+      <h2>3つ選べば、準備完了です</h2>
+      <div class="steps">
+        <article class="step">
+          <span class="step__number">1</span>
+          <h3>公開目的を選ぶ</h3>
+          <p>普通のファイルを渡すなら「ファイル共有」。HTML・CSS・JavaScriptでホームページを表示するなら「Webサイト」です。</p>
+        </article>
+        <article class="step">
+          <span class="step__number">2</span>
+          <h3>公開先を選ぶ</h3>
+          <p>最初は「このPCだけ」のままで大丈夫。「ほかの端末にも公開」を選んだときだけ、家庭内LANまたはVPNを選びます。</p>
+        </article>
+        <article class="step">
+          <span class="step__number">3</span>
+          <h3>開始してURLを開く</h3>
+          <p>「開始」を押し、表示されたURLを開きます。開始できないときは、ボタンの下に不足している設定が表示されます。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="screen-section" aria-labelledby="screen-title">
+      <div>
+        <p class="section-label">MAIN WINDOW</p>
+        <h2 id="screen-title">画面は上から順番に</h2>
+        <p>設定を探し回らなくても、必要な操作が上から下へ並びます。右側の「最近の転送」では、アクセス結果を確認できます。</p>
+        <ul class="legend">
+          <li><span>1</span> ファイル共有／Webサイト</li>
+          <li><span>2</span> 開始・停止と公開URL</li>
+          <li><span>3</span> このPC／家庭内LAN／VPN</li>
+          <li><span>4</span> 公開するフォルダー</li>
+        </ul>
+      </div>
+      <div class="app-shot" role="img" aria-label="EasyHTTPServer 2のメイン画面図">
+        <div class="app-shot__bar"><b>EasyHTTPServer 2</b><i></i><i></i><i></i></div>
+        <div class="app-shot__body">
+          <div class="shot-row"><b><em>1</em> 公開目的</b><span class="pill active">● ファイル共有</span><span class="pill">○ Webサイト</span></div>
+          <div class="shot-card"><b><em>2</em> ポート 18080</b><span class="shot-button">開始</span><span class="shot-field">サーバー停止中</span></div>
+          <div class="shot-card"><b><em>3</em> □ ほかの端末にも公開</b><small>接続方法: このPCだけ</small></div>
+          <div class="shot-columns">
+            <div class="shot-card"><b><em>4</em> 公開フォルダー</b><strong>EasyHTTPServer の説明書</strong><small>/s/easyhttpserver-guide/</small></div>
+            <div class="shot-card"><b>最近の転送</b><span class="shot-table">時刻　メソッド　状態　パス</span></div>
+          </div>
+        </div>
+      </div>
+      <p class="caption">説明用の画面図です。バージョンやテーマにより外観は少し異なります。</p>
+    </section>
+
+    <section>
+      <p class="section-label">WHERE TO SHARE</p>
+      <h2>公開範囲の違い</h2>
+      <div class="scope-grid">
+        <article><span class="badge safe">まずはこれ</span><h3>このPCだけ</h3><p>同じPCのブラウザーからだけ接続できます。動作確認やWebサイト制作に向いています。</p></article>
+        <article><span class="badge">身近な共有</span><h3>家庭内LAN</h3><p>同じWi-Fiや家庭内ネットワークの端末へHTTPSで公開します。開始時に公開内容を確認し、8桁コードでペアリングします。</p></article>
+        <article><span class="badge">遠隔共有</span><h3>VPN</h3><p>Tailscaleなど、すでに接続されているVPNのIPだけで待ち受けます。VPNへの接続自体はこのアプリから行いません。</p></article>
+      </div>
+    </section>
+
+    <section id="safety" class="safety">
+      <div><p class="section-label">SAFETY</p><h2>安全のために覚えること</h2></div>
+      <div class="check-list">
+        <p>✓ 公開前に、フォルダーの中身を確認する</p>
+        <p>✓ 知らない相手へペアリングコードを渡さない</p>
+        <p>✓ 共有が終わったら「停止」を押す</p>
+        <p>✓ Webサイトには、信頼できるHTMLとJavaScriptだけを置く</p>
+      </div>
+    </section>
+
+    <section class="faq">
+      <p class="section-label">TROUBLESHOOTING</p>
+      <h2>つながらないとき</h2>
+      <details open><summary>開始ボタンを押せません</summary><p>開始ボタンの下に表示される案内を確認します。フォルダー、LAN/VPN方式、またはネットワークアダプターが未選択です。</p></details>
+      <details><summary>スマートフォンから接続できません</summary><p>「ほかの端末にも公開」と「同じWi-Fi・家庭内LAN」を選び、スマートフォンも同じネットワークへ接続します。表示されたHTTPS URLと8桁コードを使います。</p></details>
+      <details><summary>ブラウザーに安全ではないと表示されます</summary><p>家庭内LAN/VPNでは端末がまだ証明書を信頼していない場合があります。画面のSHA-256指紋を確認してください。警告を自動回避する機能はありません。</p></details>
+      <details><summary>インターネットへ直接公開できますか</summary><p>EasyHTTPServer 2は常設の公開サーバーではありません。遠隔共有にはVPNを推奨します。ルーターのポート転送は、証明書・認証・保守を理解している場合だけ自己責任で行います。</p></details>
+    </section>
+  </main>
+
+  <footer><strong>EasyHTTPServer 2</strong><span>Copyright © charmpic · MIT License</span></footer>
+</body>
+</html>

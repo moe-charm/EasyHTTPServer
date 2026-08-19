@@ -1,0 +1,43 @@
+# Legacy runtime state may contain local paths or credentials.
+/Save/
+/log/
+/legacy/distribution-1.1/
+/legacy/source-1.2/DLL/
+*.pwd
+
+# Legacy Visual Studio build and user state.
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Modern .NET build output.
+**/bin/
+**/obj/
+TestResults/
+artifacts/
+.vs/
+
+# Published applications and signing material.
+publish/
+*.pfx
+*.snk
+*.key
+*.pem
+*.p12
+*.cer
+*.crt
+.env
+.env.*
+!.env.example
+
+# Local settings and logs for EasyHTTPServer 2.
+settings.local.json
+*.local.json
+logs/
+
+# Common editor and OS files.
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?>
+<UpgradeLog>
+<Properties><Property Name="Solution" Value="EasyHTTPServer">
+</Property><Property Name="ソリューション ファイル" Value="C:\VS\VSCS\EasyHTTPServer1.2\Source\EasyHTTPServer.sln">
+</Property><Property Name="Date" Value="2005年12月30日">
+</Property><Property Name="Time" Value="7:31">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="EasyHTTPServer.sln" Description="ファイルは正常に C:\VS\VSCS\EasyHTTPServer1.2\Source\Backup\EasyHTTPServer.sln としてバックアップされました。">
+</Event><Event ErrorLevel="0" Project="EasyHTTPServer" Source="EasyHTTPServer.csproj" Description="プロジェクト ファイルは正常に C:\VS\VSCS\EasyHTTPServer1.2\Source\Backup\EasyHTTPServer.csproj としてバックアップされました。">
+</Event><Event ErrorLevel="0" Project="EasyHTTPServer" Source="AssemblyInfo.cs" Description="ファイルは正常に C:\VS\VSCS\EasyHTTPServer1.2\Source\Backup\AssemblyInfo.cs としてバックアップされました。">
+</Event><Event ErrorLevel="0" Project="EasyHTTPServer" Source="CGIs.cs" Description="ファイルは正常に C:\VS\VSCS\EasyHTTPServer1.2\Source\Backup\CGIs.cs としてバックアップされました。">
+</Event><Event ErrorLevel="0" Project="EasyHTTPServer" Source="ContentType.cs" Description="ファイルは正常に C:\VS\VSCS\EasyHTTPServer1.2\Source\Backup\ContentType.cs としてバックアップされました。">
+</Event><Event ErrorLevel="0" Project="EasyHTTPServer" Source="FileSendStatus.cs" Description="ファイルは正常に C:\VS\VSCS\EasyHTTPServer1.2\Source\Backup\FileSendStatus.cs としてバックアップされました。">
+</Event><Event ErrorLevel="0" Project="EasyHTTPServer" Source="FormCommonSetting.cs" Description="ファイルは正常に C:\VS\VSCS\EasyHTTPServer1.2\Source\Backup\FormCommonSetting.cs としてバックアップされました。">
+</Event><Event ErrorLevel="0" Project="EasyHTTPServer" Source="FormHTTPServer.cs" Description="ファイルは正常に C:\VS\VSCS\EasyHTTPServer1.2\Source\Backup\FormHTTPServer.cs としてバックアップされました。">
+</Event><Event ErrorLevel="0" Project="EasyHTTPServer" Source="FormVersion.cs" Description="ファイルは正常に C:\VS\VSCS\EasyHTTPServer1.2\Source\Backup\FormVersion.cs としてバックアップされました。">
+</Event><Event ErrorLevel="0" Project="EasyHTTPServer" Source="HTTPCommand.cs" Description="ファイルは正常に C:\VS\VSCS\EasyHTTPServer1.2\Source\Backup\HTTPCommand.cs としてバックアップされました。">
+</Event><Event ErrorLevel="0" Project="EasyHTTPServer" Source="HTTPServer.cs" Description="ファイルは正常に C:\VS\VSCS\EasyHTTPServer1.2\Source\Backup\HTTPServer.cs としてバックアップされました。">
+</Event><Event ErrorLevel="0" Project="EasyHTTPServer" Source="HTTPServerObject.cs" Description="ファイルは正常に C:\VS\VSCS\EasyHTTPServer1.2\Source\Backup\HTTPServerObject.cs としてバックアップされました。">
+</Event><Event ErrorLevel="0" Project="EasyHTTPServer" Source="Persons.cs" Description="ファイルは正常に C:\VS\VSCS\EasyHTTPServer1.2\Source\Backup\Persons.cs としてバックアップされました。">
+</Event><Event ErrorLevel="0" Project="EasyHTTPServer" Source="StartUp.cs" Description="ファイルは正常に C:\VS\VSCS\EasyHTTPServer1.2\Source\Backup\StartUp.cs としてバックアップされました。">
+</Event><Event ErrorLevel="2" Project="EasyHTTPServer" Source="App.ico" Description="ファイルを C:\VS\VSCS\EasyHTTPServer1.2\Source\Backup\App.ico としてバックアップするのに失敗しました。">
+</Event><Event ErrorLevel="0" Project="EasyHTTPServer" Source="FormCommonSetting.resx" Description="ファイルは正常に C:\VS\VSCS\EasyHTTPServer1.2\Source\Backup\FormCommonSetting.resx としてバックアップされました。">
+</Event><Event ErrorLevel="0" Project="EasyHTTPServer" Source="FormHTTPServer.resx" Description="ファイルは正常に C:\VS\VSCS\EasyHTTPServer1.2\Source\Backup\FormHTTPServer.resx としてバックアップされました。">
+</Event><Event ErrorLevel="0" Project="EasyHTTPServer" Source="FormVersion.resx" Description="ファイルは正常に C:\VS\VSCS\EasyHTTPServer1.2\Source\Backup\FormVersion.resx としてバックアップされました。">
+</Event><Event ErrorLevel="0" Project="EasyHTTPServer" Source="EasyHTTPServer.csproj" Description="プロジェクトは正常に変換されました。">
+</Event><Event ErrorLevel="3" Project="EasyHTTPServer" Source="EasyHTTPServer.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="EasyHTTPServer.sln" Description="ソリューションは正常に変換されました">
+</Event><Event ErrorLevel="3" Project="" Source="EasyHTTPServer.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="EasyHTTPServer" Source="EasyHTTPServer.csproj" Description="スキャンが完了しました: プロジェクト ファイルにアップグレードは必要ありません。">
+</Event></UpgradeLog>

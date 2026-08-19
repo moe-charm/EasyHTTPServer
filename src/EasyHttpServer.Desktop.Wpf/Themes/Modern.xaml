@@ -1,0 +1,13 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <SolidColorBrush x:Key="AccentBrush" Color="#1769E0" />
+    <SolidColorBrush x:Key="SecondaryTextBrush" Color="#5B6675" />
+    <SolidColorBrush x:Key="MutedTextBrush" Color="#465365" />
+    <SolidColorBrush x:Key="SurfaceBrush" Color="#FFFFFF" />
+    <SolidColorBrush x:Key="CanvasBrush" Color="#F3F6FA" />
+    <Style TargetType="Button">
+        <Setter Property="Padding" Value="14,8" />
+        <Setter Property="Margin" Value="0,0,8,0" />
+        <Setter Property="MinWidth" Value="84" />
+    </Style>
+</ResourceDictionary>

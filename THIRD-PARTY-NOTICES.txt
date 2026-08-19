@@ -1,0 +1,12 @@
+EasyHTTPServer 2 is built on Microsoft .NET and ASP.NET Core.
+
+The self-contained distribution includes Microsoft runtime components licensed
+under their respective licenses. See the licenses included with the .NET runtime
+and https://github.com/dotnet/runtime for the applicable notices and source.
+
+Test-only packages are not included in the distributed application.
+
+QRCoder
+Copyright (c) Raffael Herrmann and contributors
+Licensed under the MIT License.
+https://github.com/codebude/QRCoder

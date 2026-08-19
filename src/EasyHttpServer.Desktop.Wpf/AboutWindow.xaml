@@ -1,0 +1,44 @@
+<Window x:Class="EasyHttpServer.Desktop.Wpf.AboutWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="History / About - EasyHTTPServer 2" Width="640" Height="470" Icon="Assets/AppIcon.ico"
+        ResizeMode="NoResize" WindowStartupLocation="CenterOwner"
+        Background="{DynamicResource CanvasBrush}">
+    <Border Margin="24" Padding="28" CornerRadius="12" Background="{DynamicResource SurfaceBrush}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid Grid.RowSpan="2" Margin="0,0,0,20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="72" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Image Width="60" Height="60" HorizontalAlignment="Left" Source="Assets/AppIcon.png"
+                       AutomationProperties.Name="EasyHTTPServer 2 アイコン" />
+                <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                    <TextBlock FontSize="28" FontWeight="SemiBold" Text="EasyHTTPServer 2" />
+                    <TextBlock Margin="0,3,0,0" Foreground="{DynamicResource SecondaryTextBrush}"
+                               Text="20年ぶりの、安全な再設計版" />
+                </StackPanel>
+            </Grid>
+            <ScrollViewer Grid.Row="2" TabIndex="0" Focusable="True" KeyboardNavigation.IsTabStop="True"
+                          VerticalScrollBarVisibility="Auto"
+                          AutomationProperties.Name="EasyHTTPServerの履歴">
+                <StackPanel Margin="0,0,10,0">
+                    <TextBlock FontSize="17" FontWeight="SemiBold" Text="History" />
+                    <TextBlock Margin="0,12,0,0" TextWrapping="Wrap"
+                               Text="2005年 — EasyHTTPServer 1.x をC# / Windows Formsで開発。独自HTTPサーバー、Range配信、GUI管理を一つのデスクトップアプリとして完成。" />
+                    <TextBlock Margin="0,12,0,0" TextWrapping="Wrap"
+                               Text="2026年 — 旧版を変更せず保全し、.NET 10、ASP.NET Core Kestrel、WPF / MVVMで再設計。読み取り専用と安全な公開境界から再出発。" />
+                    <TextBlock Margin="0,18,0,0" FontStyle="Italic" TextWrapping="Wrap"
+                               Text="旧版のコードは失敗ではなく、新版の脅威モデルと回帰テストを生んだ大切な原点です。" />
+                </StackPanel>
+            </ScrollViewer>
+            <Button Grid.Row="3" HorizontalAlignment="Right" TabIndex="1" IsCancel="True" Content="閉じる" />
+        </Grid>
+    </Border>
+</Window>
