@@ -17,6 +17,8 @@
 TestResults/
 artifacts/
 .vs/
+/*.zip
+/*.7z
 
 # Published applications and signing material.
 publish/

@@ -1,6 +1,6 @@
 # GitHub公開方針
 
-更新日: 2026-08-19
+更新日: 2026-08-20
 
 ## 目的
 
@@ -31,3 +31,11 @@
 4. Release ZIPがVector掲載物と同一で、SHA-256を掲載できる。
 5. READMEへ未署名、Windows警告、旧ソース非推奨を明記する。
 6. pushとGitHub公開は利用者の明示承認後に行う。
+
+## 公開先
+
+- GitHub: `https://github.com/moe-charm/EasyHTTPServer`
+- 既定ブランチ: `main`
+- 作者表記: `charmpic`
+
+公開版にはGitHub ActionsのWindows CI、脆弱性報告手順、コントリビューション案内を含めます。ルート直下のZIPや7zもGit除外し、配布物はGitHub ReleasesまたはVectorで扱います。
