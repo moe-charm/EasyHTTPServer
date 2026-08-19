@@ -17,6 +17,10 @@ EasyHTTPServer 2は、2005年に公開された「簡単WEBサーバー」を、
 > [!WARNING]
 > `legacy/`の旧版ソースは歴史資料です。現在のLANやインターネットへ公開して使用しないでください。新版もインターネットへ直接ポート公開せず、遠隔共有には信頼できるVPNを使用してください。
 
+<p align="center">
+  <img src="docs/images/main-window.jpg" width="900" alt="EasyHTTPServer 2のメイン画面（Webサイトモード）">
+</p>
+
 ## 主な機能
 
 - フォルダーを選び「開始」を押すだけの読み取り専用ファイル共有
@@ -30,7 +34,13 @@ EasyHTTPServer 2は、2005年に公開された「簡単WEBサーバー」を、
 
 ## はじめる
 
-配布ZIPを展開し、`EasyHTTPServer.exe`を実行します。自己完結型のWindows x64版には.NETランタイムが同梱されます。
+[GitHub Releases](https://github.com/moe-charm/EasyHTTPServer/releases)からWindows x64用ZIPをダウンロードし、任意の短いフォルダーへ展開して`EasyHTTPServer.exe`を実行します。インストーラーは不要です。自己完結型ZIPには.NETランタイムが同梱されます。
+
+ZIPと同じReleaseにある`SHA256SUMS.txt`で、ダウンロードしたファイルのSHA-256を確認できます。
+
+```powershell
+Get-FileHash .\EasyHTTPServer-2.0.0-alpha.1-win-x64.zip -Algorithm SHA256
+```
 
 初回起動時は説明書フォルダーが共有に登録されています。そのまま「開始」を押すと、このPCのブラウザーで操作を試せます。自分のファイルを共有する場合は「追加…」からフォルダーを選びます。
 

@@ -1,6 +1,6 @@
 # EasyHTTPServer 2 Windows配布設計
 
-更新日: 2026-08-19
+更新日: 2026-08-20
 
 Webサイトfixtureと`website-mode.md`に関する配布要件は、P7実装版へ適用するリリースゲートです。source側の基盤実装は完了し、α版ZIPの再生成と展開版QAは[現在のタスク](../current_task.md)に従って進めます。
 
@@ -42,6 +42,15 @@ artifacts/release/2.0.0-alpha.1/
 - `docs/website-mode.md`
 - `Guide/index.html`、`Guide/guide.css`、`Guide/README.txt`（初回説明書）
 - ビルドごとの`SHA256SUMS.txt`
+
+### 公開場所
+
+ソース管理には配布ZIPをコミットしません。GitHubでは版ごとのタグとReleaseを作成し、次の2ファイルをRelease assetsとして添付します。
+
+- `EasyHTTPServer-<version>-win-x64.zip`: 展開直後に`EasyHTTPServer.exe`を起動できる自己完結型配布物
+- `SHA256SUMS.txt`: 配布ZIPのSHA-256
+
+α版はGitHub Releaseの**Pre-release**として公開します。Vectorへ登録するファイルは同じZIPのバイト列を用い、Vectorのファイル名制限に合わせて名前だけを短縮しても、SHA-256が一致することを確認します。Gitタグ、Releaseタイトル、EXEの製品バージョンは同じSemVerに揃えます。
 
 次は含めません。
 

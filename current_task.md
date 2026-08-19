@@ -18,6 +18,21 @@
 
 ## 現在の作業
 
+### P16: GitHub README画像とRelease導線
+
+- [x] 個人パス、IPアドレス、認証情報を含まない実機スクリーンショットを作成する。
+- [x] READMEへスクリーンショットを掲載する。
+- [x] 展開してすぐ使える自己完結型ZIPをGitHub Releasesで配布する方針を明記する。
+- [x] ZIPをGitへコミットせず、Release assetと`SHA256SUMS.txt`で配布する境界を明記する。
+- [x] READMEと画像を検証し、コミット・pushする。
+- [ ] `v2.0.0-alpha.1`のPre-release作成は、成果物と説明文を提示して別途承認後に行う。
+
+完了条件:
+
+- README画像にローカルパス、実IP、ペアリングコード、転送履歴が写っていない。
+- GitHub上で画像とリンクが正常表示される。
+- Release ZIPとVector登録ファイルのSHA-256が一致する。
+
 ### P15: GitHub初回公開の準備
 
 - [x] 公開先`moe-charm/EasyHTTPServer`が空リポジトリであることを確認する。
