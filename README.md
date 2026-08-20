@@ -18,7 +18,7 @@ EasyHTTPServer 2は、2005年に公開された「簡単WEBサーバー」を、
 > `legacy/`の旧版ソースは歴史資料です。現在のLANやインターネットへ公開して使用しないでください。新版もインターネットへ直接ポート公開せず、遠隔共有には信頼できるVPNを使用してください。
 
 <p align="center">
-  <img src="docs/images/main-window.jpg" width="900" alt="EasyHTTPServer 2のメイン画面（Webサイトモード）">
+  <img src="docs/images/main-window.png" width="900" alt="EasyHTTPServer 2のメイン画面（Webサイトモード）">
 </p>
 
 ## 主な機能
